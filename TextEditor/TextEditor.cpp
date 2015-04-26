@@ -1,5 +1,11 @@
 #include "TextEditor.h"
+using namespace obaro::windows;
 
-using namespace obaro::editor;
 
 
+TextEditor::TextEditor(HINSTANCE inst, std::string title)
+	:IWindow(inst, title)
+{
+	
+
+}

@@ -53,6 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -78,12 +79,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IMenu.h" />
     <ClInclude Include="ITextEditorListener.h" />
+    <ClInclude Include="IWindow.h" />
+    <ClInclude Include="IWindowEvent.h" />
+    <ClInclude Include="TextDocument.h" />
     <ClInclude Include="TextEditor.h" />
+    <ClInclude Include="TextView.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="IMenu.cpp" />
+    <ClCompile Include="IWindow.cpp" />
+    <ClCompile Include="IWindowEvent.cpp" />
     <ClCompile Include="testRun.cpp" />
+    <ClCompile Include="TextDocument.cpp" />
     <ClCompile Include="TextEditor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\util\util.vcxproj">
+      <Project>{3a0e5966-0c0a-41f9-887a-ccc88bd8a653}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Hello.ucf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,32 +1,21 @@
 #ifndef WINDOW_EDIT_TEXT_H
 #define WINDOW_EDIT_TEXT_H
 #include <Windows.h>
-#include "ITextEditorListener.h"
+#include "IWindow.h"
 #include <string>
-
+#include <stdint.h>
 
 namespace obaro
 {
-	namespace editor
+	namespace windows
 	{
 
-		class TextEditor :protected ITextEditorListener <TextEditor>
+		class TextEditor :public IWindow
 		{
 
-		private:
-			//Initial fields
-			WNDCLASSEX *wndClassEx;
-			MSG *msg;
-			HINSTANCE *__instance;
-
-			//private methods 
-			void initial();
-			ITextEditorListener  *listener;
-			void __register();
-			void __createWindow();
-
 		public:
-			TextEditor(std::string title = "Editor 1.0");
+			TextEditor(HINSTANCE , std::string title = "");
+			
 
 		};
 

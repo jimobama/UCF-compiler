@@ -15,4 +15,14 @@ namespace obaro
 	}
 }
 
+using namespace obaro::editor;
+
+template<class TDerive>
+ITextEditorListener<TDerive>::ITextEditorListener()
+{
+
+}
+
+
+//Now implementations here
 #endif

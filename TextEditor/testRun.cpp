@@ -1,19 +1,16 @@
-#include<Windows.h>
-#include<tchar.h>
+#include "TextEditor.h"
 
+using namespace obaro::windows;
 
-int  WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,	PWSTR szCmdLine, int CmdShow)
+int WINAPI wWinMain(HINSTANCE hIn, HINSTANCE hPrevInstance,
+	PWSTR pCmdLine, int nCmdShow)
 {
-	PDWORD cChars = NULL;
-	HANDLE std = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	if (std == INVALID_HANDLE_VALUE) {
-		_tprintf(L"Cannot retrieve standard output handle\n (%d)",
-			GetLastError());
-	}
+	TextEditor *window = new TextEditor(hIn, "Editor 0.2");
+	window->__setTitle("Editor 0.2");
+	window->__show(nCmdShow);
+	window->__center();
+	return window->__exec();
 
-	WriteConsole(std, szCmdLine, _tcslen(szCmdLine), cChars, NULL);
 
-	return EXIT_SUCCESS;
-	
 }
