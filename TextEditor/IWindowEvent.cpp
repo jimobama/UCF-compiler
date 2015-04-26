@@ -1,8 +1,8 @@
 #include "IWindowEvent.h"
 #include "IWindow.h"
 #include "IMenu.h"
-using namespace obaro::windows;
 
+using namespace obaro::windows;
 IWindowEvent::IWindowEvent()
 {
 

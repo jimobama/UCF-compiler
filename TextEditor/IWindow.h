@@ -6,6 +6,7 @@
 #include "IWindowEvent.h"
 
 
+
 namespace obaro
 {
 	namespace windows
@@ -23,13 +24,16 @@ namespace obaro
 			int32_t __cmdShow;
 			int32_t __xPosition,__yPosition, __width,__height;
 
+			//fields controll
+
+
 		private:
 			virtual void __initial();
 		protected:
 			void __register();
 			void __createWindow();
 		public:
-			IWindow(HINSTANCE hInstance,std::string title="");	
+			IWindow(HINSTANCE hInstance=NULL,std::string title="");	
 			LRESULT CALLBACK windowEvents(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 			
 			void __setTitle(std::string title);			

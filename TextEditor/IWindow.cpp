@@ -5,11 +5,13 @@ using namespace obaro::windows;
 IWindow::IWindow(HINSTANCE hInstance, std::string title )
 {
 	this->__hInstance = hInstance;
-
+	//if the value is not set then 
+	if (this->__hInstance ==NULL)
+		__hInstance = GetModuleHandle(NULL);
 	this->__xPosition = 10;
 	this->__yPosition = 0;
-	this->__width = 500;
-	this->__height = 500;	
+	this->__width = 600;
+	this->__height = 400;	
 	this->__setTitle(title);
 }
 HWND &IWindow::getHWnd()

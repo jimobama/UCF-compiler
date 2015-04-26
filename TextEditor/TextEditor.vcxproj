@@ -94,6 +94,7 @@
     <ClCompile Include="testRun.cpp" />
     <ClCompile Include="TextDocument.cpp" />
     <ClCompile Include="TextEditor.cpp" />
+    <ClCompile Include="TextView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\util\util.vcxproj">
