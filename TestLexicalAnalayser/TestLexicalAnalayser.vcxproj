@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0C779D31-0675-4B19-BDB6-EF4BD2BA7D41}</ProjectGuid>
+    <ProjectGuid>{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TextEditor</RootNamespace>
+    <RootNamespace>TestLexicalAnalayser</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -47,57 +47,59 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\util;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\util;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\RegexEngine;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\JCore;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\LexicalAnalyser;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="IMenu.h" />
-    <ClInclude Include="ITextEditorListener.h" />
-    <ClInclude Include="IWindow.h" />
-    <ClInclude Include="IWindowEvent.h" />
-    <ClInclude Include="TextDocument.h" />
-    <ClInclude Include="TextEditor.h" />
-    <ClInclude Include="TextView.h" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IMenu.cpp" />
-    <ClCompile Include="IWindow.cpp" />
-    <ClCompile Include="IWindowEvent.cpp" />
-    <ClCompile Include="testRun.cpp" />
-    <ClCompile Include="TextDocument.cpp" />
-    <ClCompile Include="TextEditor.cpp" />
-    <ClCompile Include="TextView.cpp" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TestLexicalAnalayser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JCore\JCore.vcxproj">
+      <Project>{b8625fe1-3387-408b-ba76-aa47e24ba4ed}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\LexicalAnalyser\LexicalAnalyser.vcxproj">
+      <Project>{ceac88ae-b754-4823-9f93-9f778c06e1e3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\RegexEngine\RegexEngine.vcxproj">
+      <Project>{2b6170eb-7f40-4a62-8044-412ee88c05bb}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\util\util.vcxproj">
       <Project>{3a0e5966-0c0a-41f9-887a-ccc88bd8a653}</Project>
     </ProjectReference>

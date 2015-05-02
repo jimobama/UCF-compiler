@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SyntaxAnalyser", "SyntaxAna
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextEditor", "TextEditor\TextEditor.vcxproj", "{0C779D31-0675-4B19-BDB6-EF4BD2BA7D41}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLexicalAnalayser", "TestLexicalAnalayser\TestLexicalAnalayser.vcxproj", "{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -66,6 +68,12 @@ Global
 		{0C779D31-0675-4B19-BDB6-EF4BD2BA7D41}.Release|Win32.Build.0 = Release|Win32
 		{0C779D31-0675-4B19-BDB6-EF4BD2BA7D41}.Template|Win32.ActiveCfg = Release|Win32
 		{0C779D31-0675-4B19-BDB6-EF4BD2BA7D41}.Template|Win32.Build.0 = Release|Win32
+		{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}.Debug|Win32.ActiveCfg = Debug|Win32
+		{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}.Debug|Win32.Build.0 = Debug|Win32
+		{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}.Release|Win32.ActiveCfg = Release|Win32
+		{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}.Release|Win32.Build.0 = Release|Win32
+		{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}.Template|Win32.ActiveCfg = Release|Win32
+		{25FE86A1-2BDF-4E26-AA0C-5F505DE1A888}.Template|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

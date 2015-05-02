@@ -65,7 +65,7 @@ DFAGraph *NFAGraph::toDFA()
 		return dfaGraph;	
 	this->print();
 
-
+	std::cout << "Please wait.....\n";
 	//reset the pointer to new create DFA states
 	this->next_state_counter = 0;
 

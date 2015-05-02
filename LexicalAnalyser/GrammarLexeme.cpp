@@ -49,7 +49,7 @@ void GrammarLexeme::initalised()
 
  	//this->newLexicon("\\{", TokenClass::OPEN_BRACE);
 	//this->newLexicon("\\}", TokenClass::CLOSE_BRACE);
-	this->newLexicon(WORD, TokenClass::IDENTIFIER);
+	//this->newLexicon(WORD, TokenClass::IDENTIFIER);
 	this->newLexicon(";", TokenClass::COMMA);
 	this->newLexicon("\\(", TokenClass::OPEN_BRACKET);
 	this->newLexicon("\\)", TokenClass::CLOSE_BRACKET);
@@ -57,6 +57,8 @@ void GrammarLexeme::initalised()
 	this->newLexicon("\\*", TokenClass::OPERATORS);
 	this->newLexicon("-", TokenClass::OPERATORS);
 	this->newLexicon("\\+", TokenClass::OPERATORS);	
+	this->newLexicon("class", TokenClass::KEYWORD);
+	this->newLexicon("public", TokenClass::KEYWORD);
 	//this->newLexicon(NUMBER, TokenClass::CONST_NUMBER);
 }
 

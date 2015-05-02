@@ -12,9 +12,9 @@ namespace obaro
 		class IWindow;
 		class TextView 
 		{
-		private:
+		 private:
 			int __length;
-			IWindow *__parent;
+			IWindow *__parent;			
 		public:
 			TextView(IWindow *parant);
 			void TextView::onPaint();			

@@ -6,19 +6,23 @@
 #include "IWindowEvent.h"
 
 
+#define DEFAULT_BRG_COLOR  ::CreateSolidBrush(RGB(214,214,214))
+#define DEFAULT_DRAW_BRUSH ::CreateSolidBrush (RGB(188,214,214))
+
 
 namespace obaro
 {
 	namespace windows
 	{
-		class IMenu;
+		//class IMenu;
+
 		class IWindow :protected IWindowEvent
 		{
 		private://fields
 			MSG  msg;
-			HWND hwnd;
+			HWND hwnd;				
 			WNDCLASSW wc;
-			IMenu * __menubar;
+			//IMenu * __menubar;
 			HINSTANCE __hInstance;
 			std::wstring __title;
 			int32_t __cmdShow;
@@ -29,9 +33,10 @@ namespace obaro
 
 		private:
 			virtual void __initial();
-		protected:
+		protected:			
 			void __register();
 			void __createWindow();
+			void virtual onUpdateWindow(IWindow *sender);
 		public:
 			IWindow(HINSTANCE hInstance=NULL,std::string title="");	
 			LRESULT CALLBACK windowEvents(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
