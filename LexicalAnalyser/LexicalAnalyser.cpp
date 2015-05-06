@@ -14,27 +14,43 @@ using namespace obaro;
 using namespace obaro::lexical;
 using namespace obaro::io;
 
+LexicalAnalyser::LexicalAnalyser(bool abool)
+{
+	this->init(abool);
+}
 LexicalAnalyser::LexicalAnalyser(FileInputStream *stream,bool abool)
 {
-	this->__filestream = stream;
-
-	std::string sources = this->__filestream->GetContext();
-
-	this->__symbolStream = new SStream(sources);
-	this->setListener(new ILexicalListener(this));
-		//prepare the language 
-	this->useSpecificationFromFile = abool;
-	this->__lexemes = new GrammarLexeme(this->useSpecificationFromFile);
 	
+	this->init(abool);	
+	this->setSource(stream);
+	
+	
+}
+
+void LexicalAnalyser::init(bool abool)
+{
+	this->setListener(new ILexicalListener(this));
+	this->useSpecificationFromFile = abool;
+	this->__filestream = NULL;
+	this->__symbolStream = NULL;
 	currentAcceptingState = NULL;
 	__isPrepared = false;
 	this->__columnNumber = 0;
 	this->__currentToken = NULL;
 	this->__lineNumber = 0;
-	
+	this->__lexemes = new GrammarLexeme(this->useSpecificationFromFile);
+}
+void LexicalAnalyser::setSource(io::FileInputStream *stream)
+{
+
+	this->__filestream = stream;
+	std::string sources = this->__filestream->GetContext();
+	this->__symbolStream = new SStream(sources);
+
 }
 void LexicalAnalyser::prepare()
 {
+	
 	if (!__isPrepared)
 	{	
 		std::wstring filename = L"lspec.xml";
@@ -56,6 +72,8 @@ void LexicalAnalyser::prepare()
 		*/
 		
 	}
+
+	std::cout << "\n UCF 1.0 programming language ready windows os\n";
 }
 //The method scan the input source code and return the first detected tokens
 Token *LexicalAnalyser::parserNextToken()

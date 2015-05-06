@@ -11,7 +11,14 @@ IParser::IParser(LexicalAnalyser *&lexical,int32_t pass)
 	this->scanner = lexical;
 	this->compiler_pass = pass;
 }
-
+bool  IParser::match(std::string str)
+{
+	if (str.compare(this->scanner->xhsGetCurrentToken()->sequence) != 0)
+	{
+		return false;
+	}
+	return true;
+}
 
 //Report error 
 void IParser::parserError(std::string error, const int32_t type)

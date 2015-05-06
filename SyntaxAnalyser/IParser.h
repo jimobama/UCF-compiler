@@ -19,6 +19,7 @@ namespace obaro
 	namespace parsers
 	{
 		class IExpression;
+
 		class IPARSER_IMPORT  IParser
 		{
 		protected:
@@ -28,6 +29,7 @@ namespace obaro
 		public:
 			LexicalAnalyser  *scanner;
 			virtual IExpression * parse()=0;
+			virtual  bool match(std::string str);
 			virtual  void parserError(std::string error, const int32_t type);
 		};
 	}

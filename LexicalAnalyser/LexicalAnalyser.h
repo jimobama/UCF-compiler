@@ -60,12 +60,15 @@ namespace obaro
 			Token *__parserToken(State * start, char c);
 			Token * __parserString(char c);
 			Token * parserTokenStates(State *state, char c);
+			void init(bool abool=false);
 		protected:
 			
 		public:
+			LEXICAL_ANALYSIS_API LexicalAnalyser(bool a = false);
 			LEXICAL_ANALYSIS_API LexicalAnalyser(io::FileInputStream *stream,bool a=false);
 			LEXICAL_ANALYSIS_API  virtual ~LexicalAnalyser();
 			LEXICAL_ANALYSIS_API virtual void prepare();
+			LEXICAL_ANALYSIS_API void setSource(io::FileInputStream *stream);
 			//listeners
 			LEXICAL_ANALYSIS_API void setListener(ILexicalListener * listener);
 			LEXICAL_ANALYSIS_API void removeListener();

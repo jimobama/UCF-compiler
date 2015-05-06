@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\util;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\RegexEngine;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\JCore;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\LexicalAnalyser;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\SyntaxAnalyser;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\util;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\RegexEngine;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\JCore;C:\Users\Obaro\Desktop\2015\school\level 6\Final Year Project\C++ Applications\JCore\LexicalAnalyser;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -99,6 +99,9 @@
     </ProjectReference>
     <ProjectReference Include="..\RegexEngine\RegexEngine.vcxproj">
       <Project>{2b6170eb-7f40-4a62-8044-412ee88c05bb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SyntaxAnalyser\SyntaxAnalyser.vcxproj">
+      <Project>{621e59d6-f0e3-4abb-8502-38a0adddb767}</Project>
     </ProjectReference>
     <ProjectReference Include="..\util\util.vcxproj">
       <Project>{3a0e5966-0c0a-41f9-887a-ccc88bd8a653}</Project>

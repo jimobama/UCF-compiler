@@ -1,4 +1,12 @@
+@import "hello.ucf" only Maths;
+
+group into Mathematics 
+{
+   class Addition
+   {
+
+      
+   }
 
 
-class public 
-6787
+}
