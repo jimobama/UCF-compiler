@@ -64,6 +64,9 @@ namespace obaro
 		protected:
 			
 		public:
+			//public fields
+			int32_t ErrorCount;
+			bool IsErrorFound;
 			LEXICAL_ANALYSIS_API LexicalAnalyser(bool a = false);
 			LEXICAL_ANALYSIS_API LexicalAnalyser(io::FileInputStream *stream,bool a=false);
 			LEXICAL_ANALYSIS_API  virtual ~LexicalAnalyser();

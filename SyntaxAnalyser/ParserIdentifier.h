@@ -14,10 +14,12 @@ namespace obaro
 {
 	namespace parsers
 	{
+		
 		class IExpressionContext;
-
 		class ParserIdentifier :public IParser
 		{
+		private:			
+
 		public:
 			IExpressionContext *context;
 			IDENT_IMPORT ParserIdentifier(LexicalAnalyser *&_scanner, int32_t pass = 1);

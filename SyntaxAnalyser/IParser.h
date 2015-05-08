@@ -24,9 +24,12 @@ namespace obaro
 		{
 		protected:
 			//create a lexical analysis			
-			int32_t  compiler_pass;
+			 int32_t  compiler_pass;
 			 IParser(LexicalAnalyser *&lexer,int32_t pass=1);
 		public:
+			static int32_t ErrorCount;
+			static bool Success;
+
 			LexicalAnalyser  *scanner;
 			virtual IExpression * parse()=0;
 			virtual  bool match(std::string str);

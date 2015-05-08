@@ -5,9 +5,6 @@
 #include <State.h>
 #include <Transition.h>
 
-
-
-
 using namespace obaro::graphs;
 using namespace obaro::lexical;
 
@@ -36,40 +33,47 @@ GrammarLexeme::GrammarLexeme(bool loadfromdisk)
 void GrammarLexeme::initalised()
 {
 
-	this->newLexicon("if", TokenClass::KEYWORD);
-	this->newLexicon("else", TokenClass::KEYWORD);
-	this->newLexicon("import", TokenClass::KEYWORD);
-	this->newLexicon("\"", TokenClass::STRING);
-	this->newLexicon("void", TokenClass::KEYWORD);
-	this->newLexicon("class", TokenClass::KEYWORD);
-    this->newLexicon("public", TokenClass::KEYWORD);
-	this->newLexicon("private", TokenClass::KEYWORD);
+	this->newLexicon("if",   TokenClass::IF_STATEMENT);
+	this->newLexicon("else", TokenClass::KEYWORD);	
+	this->newLexicon("\"",   TokenClass::STRING);
+	//Type 
+	this->newLexicon("void", TokenClass::TYPES);
+	this->newLexicon("float",TokenClass::TYPES);
+	this->newLexicon("int",  TokenClass::TYPES);
+	this->newLexicon("char", TokenClass::TYPES);
+
 	this->newLexicon("\\\\", TokenClass::COMMENT_START);
 
  	this->newLexicon("int", TokenClass::KEYWORD);
-	this->newLexicon("::", TokenClass::SEMI_COLON);
-	//this->newLexicon(WORD, TokenClass::IDENTIFIER);
-	this->newLexicon(";", TokenClass::COMMA);
+	this->newLexicon(";",   TokenClass::SEMI_COLON);
+	this->newLexicon(WORD,  TokenClass::IDENTIFIER);
+	this->newLexicon(",",   TokenClass::COMMA);
 	this->newLexicon("\\}", TokenClass::CLOSE_BRACE);
 	this->newLexicon("\\{", TokenClass::OPEN_BRACE);
 	this->newLexicon("\\(", TokenClass::OPEN_BRACKET);
 	this->newLexicon("\\)", TokenClass::CLOSE_BRACKET);
 	//operators
-	this->newLexicon("=", TokenClass::OPERATORS);
+	this->newLexicon("=",   TokenClass::OPERATORS);
 	this->newLexicon("\\*", TokenClass::OPERATORS);
-	this->newLexicon("-", TokenClass::OPERATORS);
+	this->newLexicon("-",   TokenClass::OPERATORS);
 	this->newLexicon("\\+", TokenClass::OPERATORS);
-	this->newLexicon("<", TokenClass::OPERATORS);
-	this->newLexicon(">", TokenClass::OPERATORS);
-	this->newLexicon("<=", TokenClass::OPERATORS);
-	this->newLexicon(">=", TokenClass::OPERATORS);
-	this->newLexicon("!", TokenClass::OPERATORS);
-	this->newLexicon("==", TokenClass::OPERATORS);
-
-
-	this->newLexicon("class", TokenClass::KEYWORD);
-	this->newLexicon("public", TokenClass::KEYWORD);
-	//this->newLexicon(NUMBER, TokenClass::CONST_NUMBER);
+	this->newLexicon("<",   TokenClass::OPERATORS);
+	this->newLexicon(">",   TokenClass::OPERATORS);
+	this->newLexicon("<=",  TokenClass::OPERATORS);
+	this->newLexicon(">=",  TokenClass::OPERATORS);
+	this->newLexicon("!",   TokenClass::OPERATORS);
+	this->newLexicon("==",  TokenClass::OPERATORS);
+	//new classes
+	this->newLexicon("class",  TokenClass::CLASS);
+	this->newLexicon("static", TokenClass::QUALIFIER);
+	this->newLexicon("const",  TokenClass::QUALIFIER);
+	this->newLexicon("public", TokenClass::QUALIFIER);
+	this->newLexicon("protected",TokenClass::QUALIFIER);
+	this->newLexicon("private",  TokenClass::QUALIFIER);
+	this->newLexicon("internal", TokenClass::QUALIFIER);
+	this->newLexicon("import", TokenClass::IMPORT_STMT);
+	 //numbers
+	this->newLexicon(NUMBER, TokenClass::CONST_NUMBER);
 }
 
 

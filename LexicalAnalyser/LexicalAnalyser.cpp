@@ -73,7 +73,7 @@ void LexicalAnalyser::prepare()
 		
 	}
 
-	std::cout << "\n UCF 1.0 programming language ready windows os\n";
+	
 }
 //The method scan the input source code and return the first detected tokens
 Token *LexicalAnalyser::parserNextToken()
@@ -94,7 +94,8 @@ Token *LexicalAnalyser::parserNextToken()
 			token =	__parserToken(state, this->__symbolStream->current()->getValue());
 		}
 	}
-
+	//set the current token
+	this->xhsSetCurrentToken(token);
 	return token;
 
 }
@@ -271,9 +272,12 @@ void LexicalAnalyser::skipUntil(char c)
 	{
 		if (c != this->__symbolStream->current()->getValue())
 		{
-			this->countLine(this->__symbolStream->current()->getValue());
 			this->__symbolStream->advance();
 			skipUntil(c);
+		}
+		else
+		{
+			this->countLine(c);
 		}
 	}	
 }

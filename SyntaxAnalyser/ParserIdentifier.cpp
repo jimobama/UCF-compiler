@@ -6,6 +6,7 @@
 #include "IExpression.h"
 #include "IdentifierExpression.h"
 #include "IdentifierExpressionVisitor.h"
+#include "IExpressionContext.h"
 
 
 
@@ -21,29 +22,22 @@ ParserIdentifier::ParserIdentifier(LexicalAnalyser*& __scanner,int32_t pass)
 if its an identifier it will then add it to the parser tree*/
 IExpression * ParserIdentifier::parse()
 {
-	if (this->scanner == NULL)
-	{
-		this->parserError("There is no token stream to parser",0);
-		return NULL;
-	}
-	else
-	{
-
-		Token *token = this->scanner->xhsGetCurrentToken();
-		if (token == NULL || token->type != TokenClass::IDENTIFIER)
+	   Token *token = this->scanner->xhsGetCurrentToken();
+		//parser it
+		switch (token->type)
 		{
-			this->parserError("Expecting an identifier but invalid token find at ", 1);
+		case TokenClass::IDENTIFIER:{
+			IdentifierExpressionVisitor *indentVisitor = new IdentifierExpressionVisitor(this);
+			IdentifierExpression *expr = new IdentifierExpression(token->sequence);			
+			return expr->accept(indentVisitor, NULL);
+		}
+		default:
+		{
+			this->parserError("Expecting an identifier but token  '"+ token->sequence +"' find at ", 1);
 			return NULL;
 		}
-		else{
-			//else 
-
-			IExpression* ident = (IExpression*) new IdentifierExpression(token->sequence);
-			IdentifierExpressionVisitor *identVisitor = new  IdentifierExpressionVisitor(this);
-			return ident->accept(identVisitor, this->context);
-		}
-	}
-
+		} 
+	
 }
 
 

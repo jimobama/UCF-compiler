@@ -21,22 +21,20 @@ IdentifierExpressionVisitor::IdentifierExpressionVisitor(IParser * parser)
 
 IExpression * IdentifierExpressionVisitor::visit(IExpression* expr, IExpressionContext * cxt)
 {
-	if (__parser != NULL)
-	{
+	
 		IExpression *expression = expr;
 		Token *token=	__parser->scanner->xhsGetCurrentToken();
 		if (token->type == TokenClass::IDENTIFIER)
 		{
             //Identifier found now add to the tree 
-
 			token = this->__parser->scanner->parserNextToken();
-			this->__parser->scanner->xhsSetCurrentToken(token);
-		}
 		
-		this->__parser->parserError("Expecting an identifier but " + token->sequence + " given at ", 1);
+		}
+		else{
+			this->__parser->parserError("Expecting an identifier but " + token->sequence + " given at ", 1);
+		}
+
 		return expression;
-	}
 	
-	this->__parser->parserError("No parser specified to parser the identifier ",0);
 
 }

@@ -80,9 +80,16 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ClsBlkExpression.h" />
+    <ClInclude Include="ClsBlkExpressionVisitor.h" />
+    <ClInclude Include="ClsExtExpression.h" />
+    <ClInclude Include="ClsExtExpressionVisitor.h" />
+    <ClInclude Include="ExpressionQualifier.h" />
+    <ClInclude Include="ExpressionQualifierVisitor.h" />
     <ClInclude Include="IdentifierExpression.h" />
     <ClInclude Include="IdentifierExpressionVisitor.h" />
     <ClInclude Include="IExpressionContext.h" />
+    <ClInclude Include="ParserDefClass.h" />
     <ClInclude Include="ParserIdentifier.h" />
     <ClInclude Include="IExpression.h" />
     <ClInclude Include="IExpressionVisitor.h" />
@@ -92,6 +99,9 @@
     <ClInclude Include="UCFParser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ClsBlkExpression.cpp" />
+    <ClCompile Include="ClsBlkExpressionVisitor.cpp" />
+    <ClCompile Include="ClsExtExpressionVisitor.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -100,11 +110,15 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ExpressionQualifier.cpp" />
+    <ClCompile Include="ExpressionQualifierVisitor.cpp" />
     <ClCompile Include="IdentifierExpression.cpp" />
     <ClCompile Include="IdentifierExpressionVisitor.cpp" />
     <ClCompile Include="IExpression.cpp" />
     <ClCompile Include="IExpressionVisitor.cpp" />
     <ClCompile Include="IParser.cpp" />
+    <ClCompile Include="ParserDefClass.cpp" />
+    <ClCompile Include="ClsExtExpression.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>

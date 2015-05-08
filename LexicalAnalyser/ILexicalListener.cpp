@@ -28,9 +28,9 @@ void ILexicalListener::attach(LexicalAnalyser *analyser)
 void ILexicalListener::detectWhiteSpace(SStream *&stream,char c)
 {
 	if (this->__analyser->isWhiteSpace(c))
-	{
-		this->__analyser->countLine(c);
+	{		
 		stream->advance();		
+		this->__analyser->countLine(c);
 		detectWhiteSpace(stream, stream->current()->getValue());		
 	}
 	

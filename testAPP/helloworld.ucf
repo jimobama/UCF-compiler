@@ -1,0 +1,10 @@
+
+class  HelloWorld
+{
+   public void display()
+   {
+     string  name;
+	 name = "Obaro ;
+	 
+   }
+}

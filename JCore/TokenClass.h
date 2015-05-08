@@ -19,8 +19,10 @@ namespace obaro
 			EOF_TOKEN = -1,
 			INVALID_TOKEN, //start from minus -1
 			IDENTIFIER,
+			GROUP_STMT,
 			LIFE_QUALIFIER,
-			SCOPE_QUALIFIER,
+			QUALIFIER,
+			IMPORT_STMT,
 			PRE_PROCESSOR,
 			IF_STATEMENT,
 			PACKAGE,

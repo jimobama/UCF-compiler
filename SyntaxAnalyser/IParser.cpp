@@ -4,7 +4,8 @@
 #include <iostream>
 
 using namespace obaro::parsers;
-
+int32_t IParser::ErrorCount =0;
+bool IParser::Success = true;
 //The constructor set the lexical analyser and the number of  times to compiler and gather variable before semantic
 IParser::IParser(LexicalAnalyser *&lexical,int32_t pass)
 {
@@ -23,6 +24,7 @@ bool  IParser::match(std::string str)
 //Report error 
 void IParser::parserError(std::string error, const int32_t type)
 {	
+	
 	switch (type)
 	{
 	  case 0:
@@ -30,8 +32,13 @@ void IParser::parserError(std::string error, const int32_t type)
 		 break;
 	  default:
 		  Token * token = this->scanner->xhsGetCurrentToken();
-		  std::cerr << "\n" << error << " line " << token->lineNumber;
+		  if (token != NULL)
+			  std::cerr << "\n" << error << " line " << token->lineNumber;
+		  else
+			  std::cerr << "\n" << error;
 		  break;
 	}
+	IParser::Success = false;
+	IParser::ErrorCount++;
 }
 
