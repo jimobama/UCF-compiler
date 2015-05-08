@@ -19,11 +19,12 @@ namespace obaro
 		class ParserIdentifier :public IParser
 		{
 		private:			
-
+			std::string __expecting_str;
 		public:
 			IExpressionContext *context;
 			IDENT_IMPORT ParserIdentifier(LexicalAnalyser *&_scanner, int32_t pass = 1);
-			IDENT_IMPORT virtual IExpression * parse();
+			IDENT_IMPORT virtual IExpression * parse(int32_t pass = 0);
+			void excepting(std::string);
 			
 		};
 	}

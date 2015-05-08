@@ -15,7 +15,7 @@ namespace obaro
 			IExpression * __parserClsBlk();
 		public:
 			ParserDefClass(LexicalAnalyser *_lexer, int32_t level = 1);
-			virtual IExpression * parse();
+			virtual IExpression * parse(int32_t pass = 0);
 		};
 	}
 }

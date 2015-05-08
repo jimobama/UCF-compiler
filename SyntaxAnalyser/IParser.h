@@ -31,7 +31,7 @@ namespace obaro
 			static bool Success;
 
 			LexicalAnalyser  *scanner;
-			virtual IExpression * parse()=0;
+			virtual IExpression * parse(int32_t pass=0)=0;
 			virtual  bool match(std::string str);
 			virtual  void parserError(std::string error, const int32_t type);
 		};

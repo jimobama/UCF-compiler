@@ -14,11 +14,14 @@ IParser::IParser(LexicalAnalyser *&lexical,int32_t pass)
 }
 bool  IParser::match(std::string str)
 {
-	if (str.compare(this->scanner->xhsGetCurrentToken()->sequence) != 0)
-	{
-		return false;
+	Token *tok = this->scanner->xhsGetCurrentToken();
+	if (tok != NULL){
+		if (str.compare(this->scanner->xhsGetCurrentToken()->sequence) == 0)
+		{
+			return true;
+		}
 	}
-	return true;
+	return false;
 }
 
 //Report error 

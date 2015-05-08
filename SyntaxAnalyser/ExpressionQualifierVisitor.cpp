@@ -17,16 +17,20 @@ IExpression * ExpressionQualifierVisitor::visit(IExpression *expr, IExpressionCo
 	//parser the nodes and create more nodes 
 	IExpression *node = NULL;
 	Token *tok=this->__parser->scanner->xhsGetCurrentToken();
-	if (tok->sequence.compare("static") == 0
-		|| tok->sequence.compare("const") == 0)
+	if (tok != NULL)
 	{
-		node = this->__parserScopeModifier(expr, cxt);
-		node = this->__parserScopeQualifier(expr, cxt);
-	}
-	else
-	{
-		node = this->__parserScopeQualifier(expr, cxt);
-		node = this->__parserScopeModifier(expr, cxt);
+
+		if (tok->sequence.compare("static") == 0
+			|| tok->sequence.compare("const") == 0)
+		{
+			node = this->__parserScopeModifier(expr, cxt);
+			node = this->__parserScopeQualifier(expr, cxt);
+		}
+		else
+		{
+			node = this->__parserScopeQualifier(expr, cxt);
+			node = this->__parserScopeModifier(expr, cxt);
+		}
 	}
 	
 
