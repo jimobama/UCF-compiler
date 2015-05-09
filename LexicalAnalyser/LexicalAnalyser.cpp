@@ -120,7 +120,6 @@ Token *LexicalAnalyser::__parserToken(State*  state, char c)
 		return NULL;
 	}
 	Token *token = NULL;
-	this->countLine(c);
 	if (this->isWhiteSpace(c))
 	{		
 		this->__lexicalListener->detectWhiteSpace(this->__symbolStream, c);
@@ -129,8 +128,7 @@ Token *LexicalAnalyser::__parserToken(State*  state, char c)
 	}
 	else if (this->isComment(c))
 	{
-		this->skipUntil('\n');
-		
+		this->skipUntil('\n');		
 		token = this->__parserToken(state, this->__symbolStream->current()->getValue());
 	}
 	else{
@@ -185,8 +183,8 @@ Token * LexicalAnalyser::parserTokenStates(State *state, char c)
 		if (next != NULL)
 		{
 			token = new Token(TokenClass::INVALID_TOKEN, this->__pattern);
-			token->columnNumber = this->__columnNumber;
-			token->lineNumber = this->__lineNumber;			
+			token->columnNumber = this->__symbolStream->column;
+			token->lineNumber =   this->__symbolStream->line;			
 		}
 		else
 		{
@@ -201,8 +199,8 @@ Token * LexicalAnalyser::parserTokenStates(State *state, char c)
 	}
 	else{
 		token = new Token(this->currentAcceptingState->tokenID, this->__pattern);
-		token->columnNumber = this->__columnNumber;
-		token->lineNumber = this->__lineNumber;
+		token->columnNumber = this->__symbolStream->column;
+		token->lineNumber = this->__symbolStream->line;
 	}
 	
 	this->xhsResetSimulator();
@@ -236,8 +234,8 @@ Token * LexicalAnalyser::__parserString(char c)
 	this->__symbolStream->advance();
    //token current
    Token *token = new Token(TokenClass::STRING,values);
-   token->lineNumber = this->__lineNumber;
-   token->columnNumber = this->__columnNumber;
+   token->columnNumber = this->__symbolStream->column;
+   token->lineNumber = this->__symbolStream->line;
    if (cw != '"')
    {
 	   std::cout << cw;
@@ -317,8 +315,7 @@ void LexicalAnalyser::emitMessage(Token* t,std::string msg)
 		t->lineNumber = this->__lineNumber;
 		t->columnNumber = this->__columnNumber;
 		t->sequence = this->__pattern.c_str();
-	}
-	
+	}else	
 	std::cerr << msg << " line : " << this->__lineNumber << ", column : " << this->__columnNumber << std::endl;
 }
 
@@ -341,12 +338,9 @@ void LexicalAnalyser::xhsAcceptingState(State* accepting)
 
 void LexicalAnalyser::countLine(char c)
 {
-	if (c == '\n')
-	{
-		this->__columnNumber = 0;
-		this->__lineNumber++;
-	}else
-	this->__columnNumber++;
+	this->__columnNumber = this->__symbolStream->column;
+	this->__lineNumber = this->__symbolStream->line;
+
 }
 void LexicalAnalyser::removeListener()
 {

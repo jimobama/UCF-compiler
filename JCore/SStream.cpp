@@ -59,6 +59,7 @@ const  Symbol* SStream::current()
 	if (!this->isEOF())
 	{
 		s = this->symbols.at(index_position);
+
 	}
 	return s;
 }
@@ -68,6 +69,13 @@ const  Symbol* SStream::current()
 
 void SStream::advance(int32_t n)
 {
+	char c = this->current()->getValue();
+	if (c == '\n')
+	{
+		this->line++;
+		this->column = 0;
+	}
+	this->column++;
 	index_position += n;
 }
 
@@ -185,6 +193,8 @@ void SStream::init(std::string str)
 		this->symbols.push_back(s);
 
 	}
+	this->column = 0;
+	this->line = 1;
 
 }
 

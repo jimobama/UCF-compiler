@@ -36,7 +36,7 @@ void IParser::parserError(std::string error, const int32_t type)
 	  default:
 		  Token * token = this->scanner->xhsGetCurrentToken();
 		  if (token != NULL)
-			  std::cerr << "\n" << error << " line " << token->lineNumber;
+			  std::cerr << "\n" << error << " line : " << token->lineNumber << " column : " << token->columnNumber;
 		  else
 			  std::cerr << "\n" << error;
 		  break;

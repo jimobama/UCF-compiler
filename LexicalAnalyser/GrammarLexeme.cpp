@@ -41,9 +41,8 @@ void GrammarLexeme::initalised()
 	this->newLexicon("float",TokenClass::TYPES);
 	this->newLexicon("int",  TokenClass::TYPES);
 	this->newLexicon("char", TokenClass::TYPES);
-
+	this->newLexicon("string", TokenClass::TYPES);
 	this->newLexicon("\\\\", TokenClass::COMMENT_START);
-
  	this->newLexicon("int", TokenClass::KEYWORD);
 	this->newLexicon(";",   TokenClass::SEMI_COLON);
 	this->newLexicon(WORD,  TokenClass::IDENTIFIER);

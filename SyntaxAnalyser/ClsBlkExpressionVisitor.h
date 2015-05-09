@@ -23,6 +23,7 @@ namespace obaro
 		IExpression *__parserSuite(IExpression *expr, IExpressionContext *cxt);
 		IExpression *__parserAssignmentStmt(IExpression *expr, IExpressionContext* cxt);
 		IExpression *__parserSimiColon(IExpression *expr, IExpressionContext* cxt);
+		IExpression *__parserAttr(IExpression *expr, IExpressionContext* cxt);
 		public:
 			ClsBlkExpressionVisitor(IParser *parser);
 			IExpression *visit(IExpression *expr, IExpressionContext *cxt = 0);

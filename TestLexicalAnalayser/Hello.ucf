@@ -1,15 +1,8 @@
-
-class Human
-{
-  class Human
-  {
-    
-  }
-  int a;
-  class Human{
+//Simple Implementation of Interface class 
+//Missing brace error
+public class Student
+ 
   
-  }
-  
-  class Human{
-  }
 }
+
+

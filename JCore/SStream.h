@@ -29,8 +29,11 @@ namespace obaro{
 			
 			std::vector<  Symbol*>   symbols;
 			int32_t index_position;
+			
 		public:
 
+			int32_t  line;
+			int32_t  column;
 
 			//The parameters symbolstreams constructors
 			   SStream();
