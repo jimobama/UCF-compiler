@@ -1,8 +1,9 @@
-//Simple Implementation of Interface class 
-//Missing brace error
+
 public class Student
- 
+{
   
+  class   InnerClass
+  {
+  n/lasjldAH
+  }
 }
-
-

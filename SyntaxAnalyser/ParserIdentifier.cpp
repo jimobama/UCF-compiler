@@ -23,23 +23,25 @@ if its an identifier it will then add it to the parser tree*/
 IExpression * ParserIdentifier::parse(int32_t pass)
 {
 	   Token *token = this->scanner->xhsGetCurrentToken();
+	   if (token != NULL){
 		//parser it
-		switch (token->type)
-		{
-		case TokenClass::IDENTIFIER:{
-			IdentifierExpressionVisitor *indentVisitor = new IdentifierExpressionVisitor(this);
-			IdentifierExpression *expr = new IdentifierExpression(token->sequence);			
-			return expr->accept(indentVisitor, NULL);
-		}
-		default:
-		{
-			if (this->__expecting_str.compare("") == 0)
-			{
-				this->excepting("an identifier");
-			}
-			this->parserError("Expecting " + this->__expecting_str + " but token  '" + token->sequence + "' find at ", 1);
-			return NULL;
-		}
+		   switch (token->type)
+		   {
+		   case TokenClass::IDENTIFIER:{
+			   IdentifierExpressionVisitor *indentVisitor = new IdentifierExpressionVisitor(this);
+			   IdentifierExpression *expr = new IdentifierExpression(token->sequence);
+			   return expr->accept(indentVisitor, NULL);
+		   }
+		   default:
+		   {
+			   if (this->__expecting_str.compare("") == 0)
+			   {
+				   this->excepting("an identifier");
+			   }
+			   this->parserError("Expecting " + this->__expecting_str + " but token  '" + token->sequence + "' find at ", 1);
+			   return NULL;
+		   }
+		   }
 		} 
 	
 }

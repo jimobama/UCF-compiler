@@ -81,6 +81,12 @@
     <ClInclude Include="ScExpressionVisitor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ArgumentExpression.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArgumentExpressionVisitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -141,6 +147,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ScExpressionVisitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArgumentExpression.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArgumentExpressionVisitor .cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -80,6 +80,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArgumentExpression.h" />
+    <ClInclude Include="ArgumentExpressionVisitor.h" />
     <ClInclude Include="ClsBlkExpression.h" />
     <ClInclude Include="ClsBlkExpressionVisitor.h" />
     <ClInclude Include="ClsExtExpression.h" />
@@ -103,6 +105,8 @@
     <ClInclude Include="UCFParser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ArgumentExpression.cpp" />
+    <ClCompile Include="ArgumentExpressionVisitor .cpp" />
     <ClCompile Include="ClsBlkExpression.cpp" />
     <ClCompile Include="ClsBlkExpressionVisitor.cpp" />
     <ClCompile Include="ClsExtExpressionVisitor.cpp" />
